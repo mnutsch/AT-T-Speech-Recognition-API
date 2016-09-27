@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Speech to Text test </title>
+
+<script type="text/javascript">
+    $().ready(function() 
+    {
+        	var myInput = $('#file');
+   		myInput.change(function() 
+   		{
+      	 	$('#audio_file').val(myInput.val());
+   		});
+    });
+</script>
+
+</head>
+
+<body>
+
+The specific supported formats are:
+<ul>
+<li>16 bit PCM WAV, single channel, 8 kHz sampling</li>
+<li>16 bit PCM WAV, single channel, 16 kHz sampling</li>
+<li>AMR (narrowband), 12.2 kbit/s, 8 kHz sampling</li>
+<li>AMR-WB (wideband) 12.65 kbit/s, 16khz sampling</li>
+<li>OGG (speex encoding), 8kHz sampling</li>
+<li>OGG (speex encoding), 16kHz sampling</li>
+</ul>
+
+<form name="SpeechToText" action="receive.php" method="post" enctype="multipart/form-data">
+                      
+   <label for="file">Filename:</label>
+   <input type="file" name="file" id="file"><br> 
+                        
+	<input type="hidden" name="SpeechContext" value="Generic">
+                        
+	<input type="hidden" name="audio_file" value="BostonCeltics.wav">
+   
+	<input type="hidden" name="chkChunked" value="checked">
+	
+	<input type="hidden" id="x_arg" name="x_arg" value="test=123">
+	
+	<input type="hidden" id="x_subContext" name="x_arg" value="Chat">
+
+	<button type="submit" id="btnSubmit" name="SpeechToText">Submit</button>
+                        
+</form>
+
+</body>
+</html>
